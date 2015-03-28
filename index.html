@@ -4,8 +4,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/base.css">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/guess_the_stack.js"></script>
-
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,6 +13,7 @@
     ga('create', 'UA-40142348-3', 'auto');
     ga('send', 'pageview');
   </script>
+  <script type="text/javascript" src="/js/guess_the_stack.js"></script>
 </head>
 <body>
   <div class="container">
@@ -50,16 +49,20 @@
 
     <div class="row">
       <div class="col-lg-3">
-        <a class="btn btn-danger btn-block c_btn" data-language="Ruby">Ruby</a>
+        <a class="btn btn-danger btn-block c_btn" data-language="Ruby" 
+          on-click="_gaq.push(['_trackEvent', 'Round', 'Ruby']);">Ruby</a>
       </div>
       <div class="col-lg-3">
-        <a class="btn btn-info btn-block c_btn" data-language="Python">Python</a>
+        <a class="btn btn-info btn-block c_btn" data-language="Python"
+          on-click="_gaq.push(['_trackEvent', 'Round', 'Python']);">Python</a>
       </div>
       <div class="col-lg-3">
-        <a class="btn btn-success btn-block c_btn" data-language="Node.js">Node.js</a>
+        <a class="btn btn-success btn-block c_btn" data-language="Node.js"
+          on-click="_gaq.push(['_trackEvent', 'Round', 'Node.js']);">Node.js</a>
       </div>
       <div class="col-lg-3">
-        <a class="btn btn-default btn-block c_btn" data-language="PHP">PHP</a>
+        <a class="btn btn-default btn-block c_btn" data-language="PHP"
+          on-click="_gaq.push(['_trackEvent', 'Round', 'PHP']);">PHP</a>
       </div>
     </div>
 
