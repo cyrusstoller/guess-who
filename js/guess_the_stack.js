@@ -25,6 +25,19 @@ var populate_fields_with_new_service = function() {
     $(".c_desc").html(description);
     $("img.c_img").attr("src", data["logo"]);
     language = data["languages"];
+
+    var database = data["databases"];
+    if (database == "") {
+      database = "Not listed";
+    };
+    $(".c_db").html(database);
+
+    var framework = data["frameworks"];
+    if (framework == "") {
+      framework = "Not listed";
+    };
+    $(".c_fr").html(framework);
+
   });
 };
 

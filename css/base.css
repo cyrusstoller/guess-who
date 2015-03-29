@@ -2,3 +2,68 @@
   width: 200px;
   height: 200px;
 }
+.no-btn {
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;  display: block;
+  width: 100%;  
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+.ruby {
+  border: 1px solid #FDA19F;
+}
+
+.python {
+  border: 1px solid #689DCA;
+}
+
+.node {
+  border: 1px solid #C6F988;
+}
+
+.php {
+  border: 1px solid #A6AFCB;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #366E9D !important;
+  border-color: #2B577C !important;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active {
+  color: #fff;
+  background-color: #295E8B !important;
+  border-color: #2B577C !important;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #83CD29 !important;
+  border-color: #83CD29 !important;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active {
+  color: #fff;
+  background-color: #73B524 !important;
+  border-color: #73B524 !important;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: #6C7EB7 !important;
+  border-color: #6C7EB7 !important;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+  color: #fff;
+  background-color: #5E6EA0 !important;
+  border-color: #5E6EA0 !important;
+}
