@@ -18,25 +18,28 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-        <h1>Can you guess the stack?</h1>
-
-        <strong>Points: <span class="points">0</span></strong><br>
-        <strong>Lives: <span class="lives">0</span></strong><br>
-        <strong>High Score: <span class="high_score">0</span></strong><br>
-        <strong>Correct Answer for <a class="prev_co" target="_blank">last company</a> was: <span class="correct_answer">N/A</span></strong> 
+      <div class="col-lg-12" style="text-align:center;margin-top:40px">
+        <h1 style="font-weight:bold">Guess the stack</h1>
       </div>
     </div>
-
     <hr>
-
+    <br>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3 score">
+        Points: <strong><span class="points">0</span></strong><br>
+        Lives: <strong><span class="lives">0</span></strong><br>
+        High Score: <strong><span class="high_score">0</span></strong><br>
+        Correct answer for <a class="prev_co" target="_blank">last company</a> was: <strong><span class="correct_answer">N/A</span></strong>
+      </div>
+      <div class="col-md-6" style="text-align:center">
         <img src="//placekitten.com/g/200/190" class="img-rounded c_img"/>
         <br><br>
-        <div class="panel panel-default">
+        <div class="panel">
           <div class="panel-heading">
-            <a href="" class="c_name" target="_blank">Stackshare</a>
+            <a href="" class="c_name link" target="_blank">Stackshare</a>
+          </div>
+          <div class="panel-heading">
+            <a href="" class="c_web" target="_blank"></a>
           </div>
           <div class="panel-body">
             <div class="c_desc">
@@ -51,28 +54,24 @@
       <div class="col-lg-3">
         <a class="btn btn-danger btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Ruby']);">
           <span class="no-btn ruby" data-language="Ruby">Ruby</span>
-          <span class="no-btn ruby c_fr">Rails</span>
           <span class="no-btn ruby c_db">PostgreSQL</span>
         </a>
       </div>
       <div class="col-lg-3">
         <a class="btn btn-info btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Python']);">
           <span class="no-btn python" data-language="Python">Python</span>
-          <span class="no-btn python c_fr">Django</span>
           <span class="no-btn python c_db">MySQL</span>
         </a>
       </div>
       <div class="col-lg-3">
         <a class="btn btn-success btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Node.js']);">
           <span class="no-btn node" data-language="Node.js">Node.js</span>
-          <span class="no-btn node c_fr">Django</span>
-          <span class="no-btn node c_db">MySQL</span>
+          <span class="no-btn node c_db">MongoDB</span>
         </a>
       </div>
       <div class="col-lg-3">
         <a class="btn btn-default btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'PHP']);">
           <span class="no-btn php" data-language="PHP">PHP</span>
-          <span class="no-btn php c_fr">Django</span>
           <span class="no-btn php c_db">MySQL</span>
         </a>
       </div>
@@ -84,12 +83,14 @@
       <p>
         Built with &#x2661;
         by <a href="//www.cyrusstoller.com/">Cyrus Stoller</a>
-        using <a href="http://stackshare.io/?ref=cyrus">Stackshare.io</a>.
+        using <a href="http://stackshare.io/?ref=cyrus">Stackshare</a>.
       </p>
       <p>
         <iframe src="http://ghbtns.com/github-btn.html?user=cyrusstoller&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
         <iframe src="http://ghbtns.com/github-btn.html?user=cyrusstoller&repo=guess-the-stack&type=watch&count=true"
             allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20"></iframe>
+        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </p>
     </center>
   </div>

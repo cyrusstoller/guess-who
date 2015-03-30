@@ -15,8 +15,10 @@ var populate_fields_with_new_service = function() {
   $.getJSON("//stackshare.io/api/v1/stacks/random", function(data){
     $("a.c_name").attr("href", data["web_url"]);
     $("a.c_name").html(data["name"]);
+    $("a.c_web").attr("href", data["web_url"]);
+    $("a.c_web").html(data["web_url"]);
     prev_co = data["name"];
-    prev_co_link = data["web_url"];
+    prev_co_link = data["url"];
 
     var description = data["description"];
     if (description == "") {
@@ -31,12 +33,6 @@ var populate_fields_with_new_service = function() {
       database = "Not listed";
     };
     $(".c_db").html(database);
-
-    var framework = data["frameworks"];
-    if (framework == "") {
-      framework = "Not listed";
-    };
-    $(".c_fr").html(framework);
 
   });
 };

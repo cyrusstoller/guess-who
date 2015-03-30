@@ -1,6 +1,6 @@
 .c_img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 .no-btn {
   padding: 6px 12px;
@@ -66,4 +66,20 @@
   color: #fff;
   background-color: #5E6EA0 !important;
   border-color: #5E6EA0 !important;
+}
+
+.link {
+  color:black;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.c_desc {
+  font-size:13px;
+}
+
+.score {
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  padding: 15px;
 }
