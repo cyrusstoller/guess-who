@@ -3,6 +3,7 @@
   <title>Guess The Stack</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/base.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -25,18 +26,20 @@
     <hr>
     <br>
     <div class="row">
-      <div class="col-md-2 col-sm-2 col-xs-2 score">
-        <div class="pts"><span class="points">0</span></strong> points</div>
-        <div class="lvs"><strong><span class="lives">0</span></strong> lives left</div>
-        <br>
-        <div >High Score: <strong><span class="high_score">0</span></strong></div>
-        <hr>
-        Correct answer for <a class="prev_co" target="_blank">last company</a>: <strong><span class="correct_answer">N/A</span></strong>
-        <br>
-        <br>
-        <em>Source: <a class="prev_co" target="_blank">Source</a></em>
+      <div class="col-md-3">
+        <div class="score">
+          <div class="pts"><span class="points">0</span></strong> points</div>
+          <div class="lvs"><strong><span class="lives">0</span></strong> lives left</div>
+          <br>
+          <div >High Score: <strong><span class="high_score">0</span></strong></div>
+          <hr>
+          Correct answer for <a class="prev_co" target="_blank">last company</a>: <strong><span class="correct_answer">N/A</span></strong>
+          <br>
+          <br>
+          <em>Source: <a class="prev_co" target="_blank">Source</a></em>
+        </div>
       </div>
-      <div class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 center">
+      <div class="col-md-6 center">
         <img src="//placekitten.com/g/200/190" class="img-rounded c_img"/>
         <br><br>
         <div class="panel">
@@ -56,28 +59,28 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <div class="col-lg-3 col-md-3">
         <a class="btn btn-danger btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Ruby']);"
           data-language="Ruby">
           <span class="no-btn ruby">Ruby</span>
           <span class="no-btn ruby c_db">PostgreSQL</span>
         </a>
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <div class="col-lg-3 col-md-3">
         <a class="btn btn-info btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Python']);"
           data-language="Python">
           <span class="no-btn python">Python</span>
           <span class="no-btn python c_db">MySQL</span>
         </a>
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <div class="col-lg-3 col-md-3">
         <a class="btn btn-success btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Node.js']);"
           data-language="Node.js">
           <span class="no-btn node">Node.js</span>
           <span class="no-btn node c_db">MongoDB</span>
         </a>
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <div class="col-lg-3 col-md-3">
         <a class="btn btn-default btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'PHP']);"
           data-language="PHP">
           <span class="no-btn php">PHP</span>
