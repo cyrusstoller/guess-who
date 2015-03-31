@@ -53,7 +53,7 @@ var refresh_stats = function() {
 var starting_conditions = function(){
   points = 0;
   lives = 3;
-  prev_co = "last company";
+  prev_co = "N/A";
   prev_web_url = "";
   prev_co_link = "http://stackshare.io/?ref=cyrus";
   $(".correct_answer").html("N/A");
