@@ -1,3 +1,12 @@
+.title {
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.center {
+  text-align: center;
+}
+
 .c_img {
   width: 150px;
   height: 150px;
