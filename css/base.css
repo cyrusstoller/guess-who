@@ -35,7 +35,7 @@
 .btn-info {
   color: #fff;
   background-color: #366E9D !important;
-  border-color: #2B577C !important;
+  border-color: #366E9D !important;
 }
 
 .btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active {
@@ -82,4 +82,27 @@
   border: 1px solid #ebebeb;
   border-radius: 5px;
   padding: 15px;
+  text-align: center;
+}
+
+.pts {
+  background-color: #0081FF;
+  border-radius: 4px;
+  padding: 10px;
+  text-align:center;
+  margin-bottom:10px;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.lvs {
+  background-color: grey;
+  border-radius: 4px;
+  padding: 10px;
+  text-align:center;
+  margin-bottom:10px;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
 }

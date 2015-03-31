@@ -25,13 +25,18 @@
     <hr>
     <br>
     <div class="row">
-      <div class="col-md-3 score">
-        Points: <strong><span class="points">0</span></strong><br>
-        Lives: <strong><span class="lives">0</span></strong><br>
-        High Score: <strong><span class="high_score">0</span></strong><br>
-        Correct answer for <a class="prev_co" target="_blank">last company</a> was: <strong><span class="correct_answer">N/A</span></strong>
+      <div class="col-md-2 col-sm-2 col-xs-2 score">
+        <div class="pts"><span class="points">0</span></strong> points</div>
+        <div class="lvs"><strong><span class="lives">0</span></strong> lives left</div>
+        <br>
+        <div >High Score: <strong><span class="high_score">0</span></strong></div>
+        <hr>
+        Correct answer for <a class="prev_co" target="_blank">last company</a>: <strong><span class="correct_answer">N/A</span></strong>
+        <br>
+        <br>
+        <em>Source: <a class="prev_co" target="_blank">Source</a></em>
       </div>
-      <div class="col-md-6" style="text-align:center">
+      <div class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1" style="text-align:center">
         <img src="//placekitten.com/g/200/190" class="img-rounded c_img"/>
         <br><br>
         <div class="panel">
@@ -51,25 +56,25 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <a class="btn btn-danger btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Ruby']);">
           <span class="no-btn ruby" data-language="Ruby">Ruby</span>
           <span class="no-btn ruby c_db">PostgreSQL</span>
         </a>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <a class="btn btn-info btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Python']);">
           <span class="no-btn python" data-language="Python">Python</span>
           <span class="no-btn python c_db">MySQL</span>
         </a>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <a class="btn btn-success btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'Node.js']);">
           <span class="no-btn node" data-language="Node.js">Node.js</span>
           <span class="no-btn node c_db">MongoDB</span>
         </a>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <a class="btn btn-default btn-block c_btn" on-click="_gaq.push(['_trackEvent', 'Round', 'PHP']);">
           <span class="no-btn php" data-language="PHP">PHP</span>
           <span class="no-btn php c_db">MySQL</span>
@@ -85,6 +90,7 @@
         by <a href="//www.cyrusstoller.com/">Cyrus Stoller</a>
         using <a href="http://stackshare.io/?ref=cyrus">Stackshare</a>.
       </p>
+      <br>
       <p>
         <iframe src="http://ghbtns.com/github-btn.html?user=cyrusstoller&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
         <iframe src="http://ghbtns.com/github-btn.html?user=cyrusstoller&repo=guess-the-stack&type=watch&count=true"
