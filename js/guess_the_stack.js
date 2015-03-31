@@ -28,11 +28,14 @@ var populate_fields_with_new_service = function() {
     $("img.c_img").attr("src", data["logo"]);
     language = data["languages"];
 
-    var database = data["databases"];
+    var database = (data["databases"] || "");
     if (database == "") {
       database = "Not listed";
-    };
-    $(".c_db").html(database);
+      $(".c_db").hide();
+    } else {
+      $(".c_db").show();
+      $(".c_db").html(database);
+    }
 
   });
 };
