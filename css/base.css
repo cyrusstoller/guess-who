@@ -11,6 +11,11 @@
   width: 150px;
   height: 150px;
 }
+
+.c_btn {
+  margin-bottom: 10px;
+}
+
 .no-btn {
   padding: 6px 12px;
   margin-bottom: 0;
