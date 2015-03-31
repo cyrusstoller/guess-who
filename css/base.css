@@ -92,6 +92,8 @@
   border-radius: 5px;
   padding: 15px;
   text-align: center;
+  position:relative;
+  left: 15px;
 }
 
 .pts {
