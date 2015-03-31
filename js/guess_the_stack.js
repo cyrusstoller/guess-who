@@ -3,7 +3,7 @@
   If you want to tweak the settings, feel free.
 */
 
-var points, lives, prev_co, prev_co_link;
+var points, lives, prev_co, prev_co_link, prev_web_url;
 var high_score = 0;
 var language = null;
 
@@ -13,10 +13,11 @@ if (localStorage.guessTheStack) {
 
 var populate_fields_with_new_service = function() {
   $.getJSON("//stackshare.io/api/v1/stacks/random", function(data){
-    $("a.c_name").attr("href", data["web_url"]);
+    prev_web_url = data["web_url"];
+    $("a.c_name").attr("href", prev_web_url);
     $("a.c_name").html(data["name"]);
-    $("a.c_web").attr("href", data["web_url"]);
-    $("a.c_web").html(data["web_url"]);
+    $("a.c_web").attr("href", prev_web_url);
+    $("a.c_web").html(prev_web_url);
     prev_co = data["name"];
     prev_co_link = data["url"];
 
@@ -44,8 +45,9 @@ var refresh_stats = function() {
   $(".points").html(points);
   $(".lives").html(lives);
   $(".high_score").html(high_score);
-  $(".prev_co").html(prev_co);
-  $(".prev_co").attr("href", prev_co_link);
+  $(".prev_co.name").html(prev_co);
+  $(".prev_co.source").attr("href", prev_co_link);
+  $(".prev_co.name").attr("href", prev_web_url);
 }
 
 var starting_conditions = function(){
