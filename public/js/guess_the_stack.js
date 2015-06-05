@@ -107,11 +107,16 @@ $(function(){
     } else {
       lives = lives - 1;
     }
-    $(".correct_answer").html(language);
     check_game_status();
     populate_fields_with_new_service();
     e.preventDefault();
   });
+
+  $(".skip").click(function(e){
+    refresh_stats();
+    populate_fields_with_new_service();
+    e.preventDefault();
+  })
 
   $('img').on('error', placeholder_img);
 });
