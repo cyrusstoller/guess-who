@@ -1,18 +1,26 @@
-## Guess the Stack
+## Learn some names!
 
-This is a simple game that allows you to guess the stack used by popular websites.
+This is a simple game that allows you to guess the names of people.
+
+This is a fork of https://github.com/cyrusstoller/guess-the-stack
 
 ### For development
 
 ```bash
-$ python -m SimpleHTTPServer 4000
+$ shotgun config.ru
+```
+
+### For production
+
+```bash
+$ rackup config.ru
 ```
 
 ## Contributing
 
 ### Bugs / Issues
 
-If you find a bug or something that could improve the user experience, please file an issue on this github project, so our contributors/maintainers can get started fixing them. :-)
+If you find a bug or something that could improve the user experience, please file an issue on this github project, so contributors/maintainers can get started fixing them. :-)
 
 Even if you plan on filing a patch for the issue yourself it'd be great if you could still file an issue so that we don't have people duplicating work unnecessarily.
 
