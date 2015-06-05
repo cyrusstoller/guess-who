@@ -1,0 +1,4 @@
+.env
+data/raw*
+data/*.db
+public/img/thumbnail/*
