@@ -28,7 +28,8 @@ class GuessWho < Sinatra::Base
 
     {
       description: @correct.description,
-      thumbnail: @correct.thumbnail,
+      original_thumbnail: @correct.thumbnail,
+      thumbnail: "/img/thumbnail/#{@correct.id}.png",
       web_url: @correct.web_url,
       correct_answer_id: @correct_id.to_i,
       options: @people.map(&:name)
