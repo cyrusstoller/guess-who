@@ -12,6 +12,19 @@
   height: 150px;
 }
 
+.prev_thumb {
+  width: 75px;
+  height: 75px;
+}
+
+.thumb {
+  padding-bottom: 10px;
+}
+
+.answer {
+  padding-bottom: 20px;
+}
+
 .c_btn {
   margin-bottom: 10px;
 }

@@ -4,7 +4,7 @@
   If you want to tweak the settings, feel free.
 */
 
-var points, lives, prev_co, prev_co_link, prev_web_url;
+var points, lives, prev_co, prev_co_link, prev_web_url, prev_thumb;
 var high_score = 0;
 var language = null;
 
@@ -40,13 +40,14 @@ var populate_fields_with_new_service = function() {
   $.getJSON(api_end_point, function(data){
     prev_web_url = data["web_url"];
     prev_co_link = data["url"];
+    prev_thumb = data["thumbnail"];
 
     var description = data["description"];
     if (description == "") {
       description = "No description available";
     };
     $(".c_desc").html(description);
-    $("img.c_img").attr("src", data["thumbnail"]);
+    $("img.c_img").attr("src", prev_thumb);
 
     correct_answer_id = data["correct_answer_id"];
     console.log("set: correct_answer_id "+ correct_answer_id)
@@ -66,6 +67,7 @@ var refresh_stats = function() {
   $(".high_score").html(high_score);
   $(".prev_co.name").html(prev_co);
   $(".prev_co.name").attr("href", prev_web_url);
+  $(".prev_thumb").attr("src", prev_thumb);
 }
 
 var starting_conditions = function(){
