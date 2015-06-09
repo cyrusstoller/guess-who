@@ -7,4 +7,11 @@ if ENV["RACK_ENV"] == "development"
   Dotenv.load
 end
 
+unless ENV["RACK_ENV"] == "development"
+  use Rack::Auth::Basic, "IDEO" do |u, p|
+    u == ENV["USERNAME"] && p == ENV["PASSWORD"]
+  end
+end
+use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
+
 run GuessWho.new
