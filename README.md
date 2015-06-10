@@ -16,6 +16,22 @@ $ shotgun config.ru
 $ rackup config.ru
 ```
 
+## Database schema
+
+The sqlite file should live in
+
+> data/people.sqlite3.db
+
+```sql
+CREATE TABLE "people" (
+	`id`			INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`name`			TEXT,
+	`web_url`		TEXT,
+	`description`	TEXT,
+	`thumbnail`		TEXT
+);
+```
+
 ## Contributing
 
 ### Bugs / Issues

@@ -6,7 +6,7 @@ require 'open-uri'
 
 ActiveRecord::Base.establish_connection(
   :adapter  => 'sqlite3',
-  :database =>  'data/palo_alto.sqlite3.db'
+  :database =>  'data/people.sqlite3.db'
 )
 
 class People < ActiveRecord::Base
