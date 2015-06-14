@@ -40,6 +40,8 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.1.5'
 set :bundle_flags, "--deployment" # removing the --quiet flag
 
+set :nginx_conf_path, -> { shared_path.join("nginx.conf") }
+
 namespace :deploy do
 
   after :restart, :clear_cache do

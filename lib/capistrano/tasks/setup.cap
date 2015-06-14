@@ -1,0 +1,13 @@
+require_relative "helper"
+
+namespace :deploy do
+  
+  desc "setting up files that need to be in place for deployment to work"
+  task :setup do
+    invoke "deploy:check:make_linked_dirs"
+    invoke "env:upload"
+    invoke "nginx:setup"
+    invoke "thin:setup"
+  end
+  
+end

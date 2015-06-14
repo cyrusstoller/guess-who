@@ -24,6 +24,7 @@
 role :app, %w{deployer@alpha.revtilt.com}
 role :web, %w{deployer@alpha.revtilt.com}
 
+set :nginx_server_name, "ideo.guesswho.cyrusstoller.com"
 
 # Configuration
 # =============

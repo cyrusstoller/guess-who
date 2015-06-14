@@ -1,0 +1,81 @@
+require_relative "helper"
+
+namespace :thin do
+  
+  desc "setting up thin for initial deploy"
+  task :setup do
+    invoke "thin:initd"
+    invoke "thin:on_boot"
+    invoke "thin:logrotate_d"
+  end
+  
+  %w[start stop restart].each do |command|
+    desc "#{command} thin server"
+    task command do
+      on roles(:app), in: :sequence, wait: 5, except: { no_release: true } do
+        execute :sudo, "/etc/init.d/thin_#{fetch(:application)}.sh", "#{command}"
+      end
+    end
+  end
+
+  #########################################
+  ##                                     ##
+  ##       Thin system configuration     ##
+  ##                                     ##
+  #########################################
+  
+  desc "placing the logrotate.d conf file for thin"
+  task :logrotate_d do
+    on roles(:app), in: :sequence, wait: 5 do |host|
+      info "copying the thin logrotate.d conf file"
+      logrotate_conf = ERB.new(template("thin_log_rotate.conf.erb")).result(binding)
+
+      tmp_path = Pathname.new("#{shared_path}/thin_log_rotate.conf")
+      final_path = "/etc/logrotate.d/thin_#{fetch(:application)}"
+
+      upload! StringIO.new(logrotate_conf), tmp_path
+      execute :chmod, 644, tmp_path
+      execute :sudo, :mv, tmp_path, final_path
+      execute :sudo, :chown, "root.root", final_path
+    end
+  end
+  
+  desc "boot thin on system boot"
+  task :on_boot do
+    on roles(:app), in: :parallel do |host|
+      execute :sudo, "update-rc.d", "thin_#{fetch(:application)}.sh", "defaults"
+    end
+  end
+  
+  #########################################
+  ##                                     ##
+  ##     Uploading thin configuration    ##
+  ##                                     ##
+  #########################################
+  
+  desc "uploading the thin config"
+  task :app_config do
+    on roles(:app), in: :parallel do |host|
+      info "copying the thin config"
+      thin_config = ERB.new(template("thin.yml.erb")).result(binding)
+      server_thin_config = "#{release_path}/thin.yml"
+      upload! StringIO.new(thin_config), server_thin_config
+    end
+  end
+  before "deploy:publishing", "thin:app_config"
+  
+  desc "uploading the init.d for thin"
+  task :initd do
+    on roles(:app), in: :parallel do |host|
+      info "copying the thin init.d script"
+      thin_initd = ERB.new(template("thin_init.sh.erb")).result(binding)
+      tmp_path = "#{shared_path}/thin_init.sh"
+      upload! StringIO.new(thin_initd), tmp_path
+      execute :chmod, 775, tmp_path
+      execute :chown, "#{host.user}.deployers", tmp_path
+      execute :sudo, :mv, tmp_path, "/etc/init.d/thin_#{fetch(:application)}.sh"
+    end
+  end
+  before "deploy:publishing", "thin:initd"
+  
+end

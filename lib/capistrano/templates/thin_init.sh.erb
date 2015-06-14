@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+# Feel free to change any of the following variables for your app:
+TIMEOUT=${TIMEOUT-60}
+APP_ROOT="<%= current_path %>"
+ENV_VARS="RACK_ENV=<%= fetch(:stage) %> RBENV_ROOT=<%= fetch(:rbenv_path) %> RBENV_VERSION=<%= fetch(:rbenv_ruby) %>"
+RBENV_EXEC="BUNDLE_GEMFILE=$APP_ROOT/Gemfile <%= fetch(:rbenv_path) %>/bin/rbenv exec"
+THIN_CMD="bundle exec thin -C $APP_ROOT/thin.yml"
+CMD="$ENV_VARS $RBENV_EXEC $THIN_CMD"
+action="$1"
+set -u
+
+cd $APP_ROOT || exit 1
+
+case $action in
+start)
+        su -c "$CMD start" - <%= host.user %>
+        ;;
+stop)
+        su -c "$CMD stop" - <%= host.user %>
+        ;;
+restart)
+        su -c "$CMD restart" - <%= host.user %>
+        ;;
+*)
+        echo >&2 "Usage: $0 <start|stop|restart>"
+        exit 1
+        ;;
+esac

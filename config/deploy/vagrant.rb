@@ -26,6 +26,8 @@ set :stage, :vagrant
 role :app, %w{deployer@192.168.33.11}
 role :web, %w{deployer@192.168.33.11}
 
+set :nginx_server_name, "localhost"
+
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
