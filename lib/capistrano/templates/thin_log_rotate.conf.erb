@@ -4,6 +4,9 @@
 # See the logrotate(8) manpage for more information:
 #    http://linux.die.net/man/8/logrotate
 
+# To test that this works:
+# sudo logrotate -f /etc/logrotate.conf
+
 # Modify the following glob to match the logfiles your app writes to:
 <%= shared_path %>/log/*.log {
         # this first block is mostly just personal preference, though
