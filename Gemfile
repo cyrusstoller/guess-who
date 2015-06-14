@@ -10,8 +10,9 @@ gem 'sqlite3'
 
 group :development do
   gem 'shotgun'
-  gem 'dotenv'
 end
+
+gem 'dotenv'
 
 # Deploy with Capistrano
 group :development do
