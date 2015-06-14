@@ -12,5 +12,6 @@ unless ENV["RACK_ENV"] == "development"
   end
 end
 use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
+use Rack::CommonLogger
 
 run GuessWho.new
