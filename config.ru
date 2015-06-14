@@ -2,10 +2,9 @@ root = ::File.dirname(__FILE__)
 require ::File.join( root, 'server' )
 
 ENV["RACK_ENV"] ||= "development"
-if ENV["RACK_ENV"] == "development"
-  require 'dotenv'
-  Dotenv.load
-end
+
+require 'dotenv'
+Dotenv.load
 
 unless ENV["RACK_ENV"] == "development"
   use Rack::Auth::Basic, "IDEO" do |u, p|
@@ -13,5 +12,6 @@ unless ENV["RACK_ENV"] == "development"
   end
 end
 use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
+use Rack::CommonLogger
 
 run GuessWho.new

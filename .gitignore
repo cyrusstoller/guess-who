@@ -2,3 +2,11 @@
 data/raw*
 data/*.db
 public/img/thumbnail/*
+log/*
+*.log
+
+# Sensitive info
+.env*
+!.env.example
+/lib/capistrano/templates/env*
+!/lib/capistrano/templates/env.example
