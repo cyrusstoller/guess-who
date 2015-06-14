@@ -7,6 +7,8 @@ ActiveRecord::Base.establish_connection(
   :database =>  'data/people.sqlite3.db'
 )
 
+connection_handle = ActiveRecord::Base.connection
+
 class People < ActiveRecord::Base
   self.table_name = "people"
 end
@@ -34,5 +36,9 @@ class GuessWho < Sinatra::Base
       correct_answer_id: @correct_id.to_i,
       options: @people.map(&:name)
     }.to_json
+  end
+
+  after do
+    ActiveRecord::Base.connection.close
   end
 end
