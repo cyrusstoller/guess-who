@@ -44,6 +44,11 @@ set :nginx_conf_path, -> { shared_path.join("nginx.conf") }
 
 namespace :deploy do
 
+  desc "Restart application"
+  task :restart do
+    invoke "thin:restart"
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
