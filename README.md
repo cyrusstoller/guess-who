@@ -10,10 +10,17 @@ This is a fork of https://github.com/cyrusstoller/guess-the-stack
 $ shotgun config.ru
 ```
 
-### For production
+### Without reloading between requests
 
 ```bash
 $ rackup config.ru
+```
+
+### Deployment
+
+```bash
+cap production deploy:setup
+cap production deploy
 ```
 
 ## Database schema
