@@ -3,7 +3,7 @@ upstream guess_who_thin_socket {
 }
 
 server {
-  listen 80 deferred;
+  listen 80;
   server_name <%= fetch(:nginx_server_name) %>;
   # root <%= current_path %>/public;
   
