@@ -33,8 +33,8 @@ var max_lives = 3;
 */
 
 
-if (localStorage.guessTheStack) {
-  high_score = (Number(localStorage.guessTheStack) || 0);
+if (localStorage.guessWho) {
+  high_score = (Number(localStorage.guessWho) || 0);
 }
 
 var populate_fields_with_new_service = function() {
@@ -81,7 +81,7 @@ var starting_conditions = function(){
 var check_game_status = function() {
   if (points > high_score) {
     high_score = points;
-    localStorage.guessTheStack = high_score;
+    localStorage.guessWho = high_score;
   }
 
   if (lives < 0) {
