@@ -1,5 +1,6 @@
 require 'rubygems'
-require 'sinatra'
+require 'sinatra/base'
+require 'sinatra/content_for'
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
@@ -14,9 +15,11 @@ class People < ActiveRecord::Base
 end
 
 class GuessWho < Sinatra::Base
+  helpers Sinatra::ContentFor
+
   # base route
   get '/' do
-    File.read(File.join('public', 'index.html'))
+    erb :game
   end
 
   # logic to get random people

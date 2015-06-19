@@ -1,0 +1,69 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    var api_end_point = "/random.json";
+  </script>
+  <script type="text/javascript" src="/js/guess_who.js"></script>
+<% end %>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="score">
+      <div class="pts"><span class="points">0</span></strong> points</div>
+      <div class="lvs"><strong><span class="lives">0</span></strong> lives left</div>
+      <br>
+      <div>High Score: <strong><span class="high_score">0</span></strong></div>
+    </div>
+    <br>
+  </div>
+  <div class="col-md-6 center">
+    <img src="//placekitten.com/g/200/190" class="img-rounded c_img"/>
+    <br><br>
+    <div class="panel">
+      <div class="panel-body">
+        <strong>Hint:</strong>
+        <div class="c_desc">
+          Can you guess who this is?
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 center">
+    <a class="skip btn btn-warning" href="#">
+      <i class="glyphicon glyphicon-eye-close"></i>
+      Skip
+    </a>
+
+    <hr>
+
+    <div class="answer">
+      <div class="thumb">
+          <img src="//placekitten.com/g/75/75" class="prev_thumb img-rounded">
+        </div>
+
+        Correct answer: <a class="prev_co name" target="_blank">N/A</a>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+    <a class="btn btn-danger btn-block c_btn" data-language="0">
+      <span class="no-btn option_0">Leonardo</span>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-3">
+    <a class="btn btn-info btn-block c_btn" data-language="1">
+      <span class="no-btn option_1">Raphael</span>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-3">
+    <a class="btn btn-success btn-block c_btn" data-language="2">
+      <span class="no-btn option_2">Donatello</span>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-3">
+    <a class="btn btn-default btn-block c_btn" data-language="3">
+      <span class="no-btn option_3">Michelangelo</span>
+    </a>
+  </div>
+</div>
