@@ -30,12 +30,17 @@ The sqlite file should live in
 > data/people.sqlite3.db
 
 ```sql
+CREATE TABLE "groups" (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`name`	TEXT
+);
 CREATE TABLE "people" (
-	`id`			INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`id`			INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	`name`			TEXT,
 	`web_url`		TEXT,
 	`description`	TEXT,
-	`thumbnail`		TEXT
+	`thumbnail`		TEXT,
+	`group_id`		INTEGER
 );
 ```
 
