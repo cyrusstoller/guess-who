@@ -20,6 +20,17 @@ end
 class GuessWho < Sinatra::Base
   helpers Sinatra::ContentFor
 
+  helpers do
+    def title
+      sub = @group_name
+      title = "Guess Who?"
+      unless sub.nil?
+        title += " | #{sub}"
+      end
+      return title
+    end
+  end
+
   # base route
   get '/' do
     erb :home
