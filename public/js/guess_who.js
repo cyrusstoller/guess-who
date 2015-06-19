@@ -8,7 +8,8 @@ var points, lives, prev_co, prev_co_link, prev_web_url, prev_thumb;
 var high_score = 0;
 var language = null;
 
-var api_end_point = "/random.json";
+// setting this dynamically now
+// var api_end_point = "/random.json";
 var correct_answer_id = null;
 var max_lives = 3;
 
@@ -32,8 +33,8 @@ var max_lives = 3;
 */
 
 
-if (localStorage.guessTheStack) {
-  high_score = (Number(localStorage.guessTheStack) || 0);
+if (localStorage.guessWho) {
+  high_score = (Number(localStorage.guessWho) || 0);
 }
 
 var populate_fields_with_new_service = function() {
@@ -80,7 +81,7 @@ var starting_conditions = function(){
 var check_game_status = function() {
   if (points > high_score) {
     high_score = points;
-    localStorage.guessTheStack = high_score;
+    localStorage.guessWho = high_score;
   }
 
   if (lives < 0) {
