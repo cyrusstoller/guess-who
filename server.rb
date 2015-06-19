@@ -22,23 +22,36 @@ class GuessWho < Sinatra::Base
     erb :game
   end
 
+  get '/group/:group' do
+    @group_id = params[:group].split("-")[0]
+    @api_end_point = "/#{@group_id}/random.json"
+    erb :game
+  end
+
   # logic to get random people
-  get '/random.json' do
-    content_type :json
+  ['/random.json', '/:group/random.json'].each do |path|
+    get path do
+      content_type :json
 
-    num = 4
-    @correct_id = rand(num)
-    @people = People.order("random()").limit(num)
-    @correct = @people[@correct_id]
+      num = 4
+      @correct_id = rand(num)
+      @people = People.order("random()").limit(num)
 
-    {
-      description: @correct.description,
-      original_thumbnail: @correct.thumbnail,
-      thumbnail: "/img/thumbnail/#{@correct.id}.png",
-      web_url: @correct.web_url,
-      correct_answer_id: @correct_id.to_i,
-      options: @people.map(&:name)
-    }.to_json
+      if params[:group] and not params[:group] =~ /all/i
+        @people = @people.where(:group_id => params[:group])
+      end
+
+      @correct = @people[@correct_id]
+
+      {
+        description: @correct.description,
+        original_thumbnail: @correct.thumbnail,
+        thumbnail: "/img/thumbnail/#{@correct.id}.png",
+        web_url: @correct.web_url,
+        correct_answer_id: @correct_id.to_i,
+        options: @people.map(&:name)
+      }.to_json
+    end
   end
 
   after do
