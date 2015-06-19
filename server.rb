@@ -14,6 +14,9 @@ class People < ActiveRecord::Base
   self.table_name = "people"
 end
 
+class Group < ActiveRecord::Base
+end
+
 class GuessWho < Sinatra::Base
   helpers Sinatra::ContentFor
 
@@ -25,6 +28,7 @@ class GuessWho < Sinatra::Base
   get '/group/:group' do
     @group_id = params[:group].split("-")[0]
     @api_end_point = "/#{@group_id}/random.json"
+    @group_name = Group.where(:id => @group_id).first.name rescue "Everyone"
     erb :game
   end
 

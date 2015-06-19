@@ -3,6 +3,10 @@
   margin-top: 40px;
 }
 
+.title a {
+  color: #333;
+}
+
 .center {
   text-align: center;
 }
