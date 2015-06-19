@@ -19,7 +19,7 @@ class GuessWho < Sinatra::Base
 
   # base route
   get '/' do
-    erb :game
+    erb :home
   end
 
   get '/group/:group' do
