@@ -8,7 +8,8 @@ var points, lives, prev_co, prev_co_link, prev_web_url, prev_thumb;
 var high_score = 0;
 var language = null;
 
-var api_end_point = "/random.json";
+// setting this dynamically now
+// var api_end_point = "/random.json";
 var correct_answer_id = null;
 var max_lives = 3;
 
