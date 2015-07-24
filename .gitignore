@@ -1,4 +1,5 @@
 .env
+data/crawl.js
 data/raw*
 data/*.db
 public/img/thumbnail/*
