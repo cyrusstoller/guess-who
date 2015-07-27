@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <script type="text/javascript">
     var api_end_point = "<%= @api_end_point || '/random.json' %>";
+    var use_original_thumbnail = <%= @use_original_thumbnail %>;
   </script>
   <script type="text/javascript" src="/js/guess_who.js"></script>
 <% end %>

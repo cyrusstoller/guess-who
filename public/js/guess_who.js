@@ -20,6 +20,7 @@ var max_lives = 3;
 /*
   {
     "description": "Business Design Intern",
+    "original_thumbnail": "http://placekitten.com/g/200/300",
     "thumbnail": "http://placekitten.com/g/200/300",
     "web_url": "http://tube.ideo.com/people/cstoller",
     "options": [
@@ -41,7 +42,12 @@ var populate_fields_with_new_service = function() {
   $.getJSON(api_end_point, function(data){
     prev_web_url = data["web_url"];
     prev_co_link = data["url"];
-    prev_thumb = data["thumbnail"];
+
+    if (use_original_thumbnail) {
+      prev_thumb = data["original_thumbnail"];
+    } else {
+      prev_thumb = data["thumbnail"];
+    }
 
     var description = data["description"];
     if (description == "") {
@@ -51,7 +57,7 @@ var populate_fields_with_new_service = function() {
     $("img.c_img").attr("src", prev_thumb);
 
     correct_answer_id = data["correct_answer_id"];
-    console.log("set: correct_answer_id "+ correct_answer_id)
+    // console.log("set: correct_answer_id "+ correct_answer_id)
 
     $(".option_0").html(data["options"][0])
     $(".option_1").html(data["options"][1])

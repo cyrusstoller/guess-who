@@ -1,5 +1,6 @@
 {
 	"description": "Business Design Intern",
+	"original_thumbnail": "http://placekitten.com/g/200/300", // the image that was scraped
 	"thumbnail": "http://placekitten.com/g/200/300",
 	"web_url": "http://tube.ideo.com/people/cstoller",
 	"options": [
