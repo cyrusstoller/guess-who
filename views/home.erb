@@ -8,18 +8,12 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <a class="btn btn-default btn-block g_btn" href="/group/1-palo-alto">
-      <span class="no-btn">Palo Alto</span>
-    </a>
+<% @groups.each do |group| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a class="btn btn-default btn-block g_btn" href="<%= group.url %>">
+        <span class="no-btn"><%= group.name %></span>
+      </a>
+    </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <a class="btn btn-default btn-block g_btn" href="/group/2-san-francisco">
-      <span class="no-btn">San Francisco</span>
-    </a>
-  </div>
-</div>
+<% end %>

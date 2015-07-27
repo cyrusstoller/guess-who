@@ -15,6 +15,10 @@ class People < ActiveRecord::Base
 end
 
 class Group < ActiveRecord::Base
+  def url
+    underscore_name = name.downcase.gsub(" ", "-")
+    "/groups/#{id}-#{underscore_name}"
+  end
 end
 
 class GuessWho < Sinatra::Base
@@ -34,6 +38,7 @@ class GuessWho < Sinatra::Base
   # base route
   get '/' do
     @all_label = ENV["ALL_LABEL"] || "Everyone"
+    @groups = Group.all
     erb :home
   end
 
