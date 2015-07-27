@@ -17,7 +17,7 @@ end
 class Group < ActiveRecord::Base
   def url
     underscore_name = name.downcase.gsub(" ", "-")
-    "/groups/#{id}-#{underscore_name}"
+    "/group/#{id}-#{underscore_name}"
   end
 end
 
