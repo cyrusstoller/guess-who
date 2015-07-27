@@ -33,6 +33,7 @@ class GuessWho < Sinatra::Base
 
   # base route
   get '/' do
+    @all_label = ENV["ALL_LABEL"] || "Everyone"
     erb :home
   end
 
