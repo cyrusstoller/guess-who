@@ -44,6 +44,19 @@ CREATE TABLE "people" (
 );
 ```
 
+For now, to load data from a csv:
+
+- First remove the `id` column
+
+```
+sqlite3 data/people.sqlite3.db
+.mode csv
+.import 'raw.csv' people
+```
+
+- Add the `id` column back
+- I plan on adding a rake task for this in the future
+
 ## Contributing
 
 ### Bugs / Issues
