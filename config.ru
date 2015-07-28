@@ -13,7 +13,11 @@ unless ENV["RACK_ENV"] == "development"
     u == ENV["USERNAME"] && p == ENV["PASSWORD"]
   end
 end
-use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
+
+if ENV["PROTECT_ASSETS"] =~ /true/i
+  use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
+end
+
 use Rack::CommonLogger
 
 run GuessWho.new
