@@ -9,8 +9,10 @@ Dotenv.load
 unless ENV["RACK_ENV"] == "development"
   realm = ENV["REALM"] || "Walled Garden"
 
-  use Rack::Auth::Basic, realm do |u, p|
-    u == ENV["USERNAME"] && p == ENV["PASSWORD"]
+  unless ENV["PASSWORD"].nil?
+    use Rack::Auth::Basic, realm do |u, p|
+      u == ENV["USERNAME"] && p == ENV["PASSWORD"]
+    end
   end
 end
 
