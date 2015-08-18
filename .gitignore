@@ -1,7 +1,9 @@
+.DS_Store
 .env
 data/crawl.js
 data/raw*
 data/*.db
+!data/sample.sqlite3.db
 public/img/thumbnail/*
 log/*
 *.log

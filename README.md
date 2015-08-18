@@ -29,6 +29,16 @@ The sqlite file should live in
 
 > data/people.sqlite3.db
 
+A sample file can be found in
+
+> data/sample.sqlite3.db
+
+For a quick start you can run:
+
+```bash
+$ ln -s data/sample.sqlite3.db data/people.sqlite3.db
+```
+
 ```sql
 CREATE TABLE "groups" (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
