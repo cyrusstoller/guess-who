@@ -23,6 +23,26 @@ cap production deploy:setup
 cap production deploy
 ```
 
+###	Deployment Using Docker
+
+Please make sure your host machine has ``Docker`` and ``docker-compose`` installed and ``db`` file inside your ``data`` directory
+
+To run this project, do the following:
+
+	docker-compose build
+	docker-compose up
+
+Now, go to port 9292 and you are done!
+
+You can also use these files with your existing project. Copy, ``docker-compose.yml`` and ``Dockerfile`` to the root directory of your project. Now, run:
+
+	docker-compose build
+	docker-compose up
+
+Like before, your app is now running on port 9292 of your host machine. What if I want to change this? Easy enough. Currently, in docker-compose, we are exposing 9292:9292. The one on the left is our host's port and the one on the right is Docker container port.
+
+To change the host port, say 80, change it to 80:9292. Now, you can go to the root of your host-ip and look at your awesome dashboard!
+
 ## Database schema
 
 The sqlite file should live in
