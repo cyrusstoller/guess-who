@@ -19,3 +19,4 @@ RUN bundle install
 RUN mkdir /guess-who
 WORKDIR /guess-who
 ADD . /guess-who
+RUN mv /guess-who/data/sample.sqlite3.db /guess-who/data/people.sqlite3.db
