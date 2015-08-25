@@ -1,4 +1,4 @@
-upstream guess_who_thin_socket {
+upstream guess_who_thin_<%= fetch(:nginx_server_num, "") %>_socket {
   server unix:<%= shared_path %>/tmp/sockets/thin.0.sock fail_timeout=0;
 }
 
@@ -16,7 +16,7 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
     proxy_redirect off;
-    proxy_pass http://guess_who_thin_socket;
+    proxy_pass http://guess_who_thin_<%= fetch(:nginx_server_num, "") %>_socket;
   }
   
   error_page 500 502 503 504 /500.html;

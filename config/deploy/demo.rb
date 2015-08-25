@@ -26,6 +26,7 @@ set :stage, :demo
 role :app, %w{deployer@pluto.cyrusstoller.com}
 role :web, %w{deployer@pluto.cyrusstoller.com}
 
+set :nginx_server_num, "1"
 set :nginx_server_name, "guesswho.cyrusstoller.com"
 
 # Configuration
