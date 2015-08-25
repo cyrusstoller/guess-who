@@ -1,5 +1,8 @@
 .DS_Store
 .env
+config/deploy/*.rb
+!config/deploy/production.rb
+!config/deploy/vagrant.rb
 data/crawl.js
 data/raw*
 data/*.db
