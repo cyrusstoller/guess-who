@@ -16,14 +16,16 @@ $ shotgun config.ru
 $ rackup config.ru
 ```
 
-### Deployment
+## Methods for deployment
+
+### Deployment using Capistrano
 
 ```bash
 cap production deploy:setup
 cap production deploy
 ```
 
-###	Deployment Using Docker
+###	Deployment using Docker
 
 Please make sure your host machine has ``Docker`` and ``docker-compose`` installed and ``db`` file inside your ``data`` directory
 
