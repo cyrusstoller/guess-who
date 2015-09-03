@@ -10,7 +10,7 @@ var language = null;
 
 // setting this dynamically now
 // var api_end_point = "/random.json";
-var correct_answer_id = null;
+var correct_answer_id = null, prev_correct;
 var max_lives = 3;
 
 /*
@@ -68,13 +68,29 @@ var populate_fields_with_new_service = function() {
   });
 };
 
+var remove_glow = function() {
+  $(".prev_thumb").removeClass("glow-red").removeClass("glow-green");
+}
+
+var set_prev_thumb = function() {
+  $(".prev_thumb").attr("src", prev_thumb);
+  remove_glow();
+  if (prev_correct) {
+    $(".prev_thumb").addClass("glow-green")
+  } else {
+    $(".prev_thumb").addClass("glow-red")
+  }
+
+  prev_correct = false;
+}
+
 var refresh_stats = function() {
   $(".points").html(points);
   $(".lives").html(lives);
   $(".high_score").html(high_score);
   $(".prev_co.name").html(prev_co);
   $(".prev_co.name").attr("href", prev_web_url);
-  $(".prev_thumb").attr("src", prev_thumb);
+  set_prev_thumb();
 }
 
 var starting_conditions = function(){
@@ -106,12 +122,14 @@ var placeholder_img = function(){
 $(function(){
   starting_conditions();
   refresh_stats();
+  remove_glow();
   populate_fields_with_new_service();
 
   $(".c_btn").click(function(e){
     var selected = $(this).data("language");
+    prev_correct = (correct_answer_id === selected);
 
-    if (correct_answer_id === selected) {
+    if (prev_correct) {
       points = points + 1;
     } else {
       lives = lives - 1;
