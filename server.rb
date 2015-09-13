@@ -47,6 +47,12 @@ class GuessWho < Sinatra::Base
     erb :home
   end
 
+  get '/group/list' do
+    @all_label = "All Groups"
+    @groups = Group.all
+    erb :home
+  end
+
   get '/group/:group' do
     @group_id = params[:group].split("-")[0]
     @api_end_point = "/#{@group_id}/random.json"
