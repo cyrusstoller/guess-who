@@ -38,7 +38,12 @@ class GuessWho < Sinatra::Base
   # base route
   get '/' do
     @all_label = ENV["ALL_LABEL"] || "Everyone"
-    @groups = Group.all
+    if max_id = ENV['MAX_GROUP_LIST_ID'].to_i
+      @groups = Group.where("id <= ?", max_id)
+    else
+      @groups = Group.all
+    end
+
     erb :home
   end
 
