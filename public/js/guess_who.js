@@ -75,7 +75,7 @@ var populate_fields_with_new_service = function() {
       $(".option_3").html("No idea");
     }
 
-    prev_co = data["options"][correct_answer_id];
+    prev_co = data["options"][data["correct_answer_id"]];
   });
 };
 
