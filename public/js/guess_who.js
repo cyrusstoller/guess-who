@@ -13,6 +13,9 @@ var language = null;
 var correct_answer_id = null, prev_correct;
 var max_lives = 3;
 
+// adding hard mode
+var mode = 'normal';
+
 /*
   JSON schema for the endpoint
 */
@@ -56,13 +59,21 @@ var populate_fields_with_new_service = function() {
     $(".c_desc").html(description);
     $("img.c_img").attr("src", prev_thumb);
 
-    correct_answer_id = data["correct_answer_id"];
-    // console.log("set: correct_answer_id "+ correct_answer_id)
+    if(mode == "normal") {
+      correct_answer_id = data["correct_answer_id"];
+      // console.log("set: correct_answer_id "+ correct_answer_id)
 
-    $(".option_0").html(data["options"][0])
-    $(".option_1").html(data["options"][1])
-    $(".option_2").html(data["options"][2])
-    $(".option_3").html(data["options"][3])
+      $(".option_0").html(data["options"][0]);
+      $(".option_1").html(data["options"][1]);
+      $(".option_2").html(data["options"][2]);
+      $(".option_3").html(data["options"][3]);
+    } else {
+      correct_answer_id = 0;
+      $(".option_0").html("I know this");
+      $(".option_1").html("I know part of it");
+      $(".option_2").html("I could pick it out");
+      $(".option_3").html("No idea");
+    }
 
     prev_co = data["options"][correct_answer_id];
   });
@@ -119,6 +130,23 @@ var placeholder_img = function(){
   $(this).attr('src', 'http://placehold.it/200x200');
 }
 
+var clear_mode = function(){
+  $(".mode").removeClass("normal").removeClass("hard");
+}
+
+var set_mode = function(new_mode){
+  mode = new_mode; // set global state
+  clear_mode();
+
+  if (mode == "hard") {
+    $(".mode").addClass("normal").html("Switch to normal mode");
+  } else {
+    $(".mode").addClass("hard").html("Switch to hard mode");
+  }
+
+  populate_fields_with_new_service();
+}
+
 $(function(){
   starting_conditions();
   refresh_stats();
@@ -142,6 +170,16 @@ $(function(){
   $(".skip").click(function(e){
     refresh_stats();
     populate_fields_with_new_service();
+    e.preventDefault();
+  })
+
+  // Set modes
+  $(".mode").click(function(e){
+    if($(this).hasClass("hard")){
+      set_mode("hard");
+    } else {
+      set_mode("normal");
+    }
     e.preventDefault();
   })
 
