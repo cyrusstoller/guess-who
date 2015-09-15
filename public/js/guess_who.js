@@ -144,6 +144,7 @@ var set_mode = function(new_mode){
     $(".mode").addClass("hard").html("Switch to hard mode");
   }
 
+  refresh_stats();
   populate_fields_with_new_service();
 }
 
