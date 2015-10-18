@@ -10,7 +10,7 @@ var language = null;
 
 // setting this dynamically now
 // var api_end_point = "/random.json";
-var correct_answer_id = null, prev_correct;
+var correct_answer_id = null, prev_correct = true, selected_answer = false;
 var max_lives = 3;
 
 // adding hard mode
@@ -79,6 +79,16 @@ var populate_fields_with_new_service = function() {
   });
 };
 
+var flash_result = function(correctness) {
+  if (selected_answer) {
+    if (correctness) {
+      $("img.c_img").attr("src", '/img/correct.png');
+    } else{
+      $("img.c_img").attr("src", '/img/wrong.png');
+    };
+  };
+}
+
 var remove_glow = function() {
   $(".prev_thumb").removeClass("glow-red").removeClass("glow-green");
 }
@@ -92,6 +102,7 @@ var set_prev_thumb = function() {
     $(".prev_thumb").addClass("glow-red")
   }
 
+  flash_result(prev_correct);
   prev_correct = false;
 }
 
@@ -157,6 +168,7 @@ $(function(){
   $(".c_btn").click(function(e){
     var selected = $(this).data("language");
     prev_correct = (correct_answer_id === selected);
+    selected_answer = true;
 
     if (prev_correct) {
       points = points + 1;
@@ -164,7 +176,9 @@ $(function(){
       lives = lives - 1;
     }
     check_game_status();
-    populate_fields_with_new_service();
+    setTimeout(populate_fields_with_new_service, 250);
+
+    selected_answer = false;
     e.preventDefault();
   });
 
