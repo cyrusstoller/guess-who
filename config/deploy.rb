@@ -37,7 +37,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/sockets',
 # set :keep_releases, 5
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.1.5'
+set :rbenv_ruby, '2.1.10'
 set :bundle_flags, "--deployment" # removing the --quiet flag
 
 set :nginx_conf_path, -> { shared_path.join("nginx.conf") }
